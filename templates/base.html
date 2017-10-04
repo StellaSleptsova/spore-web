@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPORe Web App</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>SPORe Web App</h1>
+    </div>
+
+    <div class="container">
+        <div class="column menu">
+            <nav>
+                <ul>
+                    <li> <a href="/">Home</a> </li>
+                    <li> <a href="/sim/">Submit Simulation</a> </li>
+                    <li> <a href="/logs/">Logs</a> </li>
+                    <li> <a href="/plots/">Plots Constructor</a> </li>
+                    <li> <a href="/admin/">Admin site</a> </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="column content">
+            {% block content %} {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>

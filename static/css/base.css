@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+.header {
+    padding: 15px;
+    margin-bottom: 8px;
+    background-color: LightBlue;
+}
+
+.header h1 {
+    padding-left: 15px;
+}
+
+div.container {
+    width: 100%;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.menu {
+    background-color: LightBlue;
+    width: 15%;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu li {
+    margin: 25px 25px 25px 15px;
+}
+
+.content {
+    width: 85%;
+}
