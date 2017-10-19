@@ -1,41 +1,48 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+
+{% endblock extrahead %}
+
 {% block content %}
 
-<script type="text/javascript">
-    $(function() {
-        $('#id_value_forms tbody').formset({
-            prefix: '{{ arg_forms.prefix }}',
-            formCssClass: 'dynamic-arg_formset'
-        });
-        $('#id_files_forms tbody').formset({
-            prefix: '{{ file_forms.prefix }}',
-            formCssClass: 'dynamic-file-formset'
-        });
-    })
-</script>
+    <script type="text/javascript">
+        $(function() {
+            $('#id_value_forms tbody').formset({
+                prefix: '{{ arg_forms.prefix }}',
+                formCssClass: 'dynamic-arg_formset',
+                addText: 'add element'
+            });
+            $('#id_files_forms tbody').formset({
+                prefix: '{{ file_forms.prefix }}',
+                formCssClass: 'dynamic-file-formset',
+                addText: 'add file'
+            });
+        })
+    </script>
 
-<h3>Submit Simulation</h3>
-
-<form id="spec_form" method="post" action="/sim/">
-    <table id="id_value_forms">
-        <tbody>
-        {% for form in arg_forms %}
-            <tr><td>{{ form.type }}</td></tr>
-            <tr><td>{{ form.name }}</td></tr>
-            <tr><td>{{ form.args }}</td></tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <table id="id_files_forms">
-        <tbody>
-        {% for form in file_forms %}
-            <tr><td>{{ form.file }}</td></tr>
-            <tr><td>{{ form.name }}</td></tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% csrf_token %}
-    <input type="submit" name="submit"/>
-</form>
+    <h3>Submit Simulation</h3>
+    <form id="spec_form" method="post" action="/sim/">
+        {{ exec_form.as_p }}
+        {{ argtemp_form.as_p }}
+        <table id="id_value_forms">
+            <tbody>
+            {% for form in arg_forms %}
+                <tr><td>{{ form.type.label }}: {{ form.type }}</td></tr>
+                <tr><td>{{ form.name.label }}: {{ form.name }}</td></tr>
+                <tr><td>{{ form.args.label }}: {{ form.args }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table id="id_files_forms">
+            <tbody>
+            {% for form in file_forms %}
+                <tr><td>{{ form.file.label }}: {{ form.file }}</td></tr>
+                <tr><td>{{ form.name.label }}: {{ form.name }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% csrf_token %}
+        <input id="id_submit" type="submit" name="submit" value="Start Simulation"/>
+    </form>
 {% endblock content %}
