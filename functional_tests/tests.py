@@ -21,7 +21,7 @@ class SubmitSimulationTest(LiveServerTestCase):
         # User uploads executable file
 
         exec_upload = self.browser.find_element_by_id("id_exec")
-        exec_upload.send_keys(getcwd() + "/test")
+        exec_upload.send_keys(getcwd() + "functional_tests/test_files/test")
 
         # User enters argument template
 

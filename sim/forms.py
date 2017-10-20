@@ -15,8 +15,10 @@ class AddFileForm(forms.Form):
     file = forms.FileField(label="Upload file")
     name = forms.CharField(label="Include in the args as", max_length=50, required=False)
 
+
 class ExecutableFileForm(forms.Form):
-    exec = forms.FileField(label="Upload executable")
+    execfile = forms.FileField(label="Upload executable")
+
 
 class ArgTemplateForm(forms.Form):
     argtemplate = forms.CharField(label="Arguement template", max_length=300)

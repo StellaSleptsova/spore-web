@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.forms import formset_factory
 from sim.forms import ValueForm, AddFileForm, ExecutableFileForm, ArgTemplateForm
 
+
 def index(request):
     ValueFormSet = formset_factory(ValueForm, extra=1)
     FileFormSet = formset_factory(AddFileForm, extra=1)
