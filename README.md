@@ -4,13 +4,16 @@ This includes parallelization using HTCondor, parsing output data and storing it
 ## Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 ### Prerequisites
-- Python 3.6
+- Python 2.7
 - Django 1.11.5
 - HTCondor 8.6.6
+- Selenium 2.21.2_0 of greater, preferably the last version, for functional testing
+- Firefox browser and Gecko driver for functional testing
 
-You can install Django via ```pip```:
+You can install Django and Selenium via ```pip```:
 ```
-pip install Django==1.11.5
+pip install django==1.11.5
+pip install --upgrade selenium
 ```
 You need HTCondor up and running. Check the [official website](http://research.cs.wisc.edu/htcondor/) for downloads and user manual.
 ### Running
