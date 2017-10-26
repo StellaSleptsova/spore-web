@@ -11,7 +11,6 @@ def index(request):
         file_formset = FileFormSet(request.POST, request.FILES, prefix='files')
         exec_form = ExecutableFileForm(request.POST, request.FILES)
         argtemp_form = ArgTemplateForm(request.POST)
-        # TODO Submit data and launch HTCondor
     else:
         value_formset = ValueFormSet(prefix='values')
         file_formset = FileFormSet(prefix='files')
