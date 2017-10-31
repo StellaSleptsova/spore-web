@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Plots</p>
+	<h2>Plotting</h2>
+	<form id="spec_form" method="POST" action="/plots/">
+		{{value_forms.as_p}}
+		<hr align="left" width="800" size="2" color="#87CEEB" />
+		<h3>Curves</h3>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<h5>_</h5>
+		<hr align="left" width="800" size="2" color="#87CEEB" />
+		<input id="exportPlot_submit" type="submit" name="exportPlot" value="Export Plots"/>
+		<input id="exportData_submit" type="submit" name="exportData" value="Export Data"/>
+	</form>
 {% endblock content %}
