@@ -1,22 +1,26 @@
-{% extends "base.html" %}
+{% extends "base.html" %}		
 
 {% block content %}
+
 	<h2>Plotting</h2>
-	<form id="spec_form" method="POST" action="/plots/">
-		{{value_forms.as_p}}
-		<hr align="left" width="800" size="2" color="#87CEEB" />
-		<h3>Curves</h3>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<h5>_</h5>
-		<hr align="left" width="800" size="2" color="#87CEEB" />
-		<input id="exportPlot_submit" type="submit" name="exportPlot" value="Export Plots"/>
-		<input id="exportData_submit" type="submit" name="exportData" value="Export Data"/>
+	<form method="POST" action="/plots/">
+		{% csrf_token %}
+		{{variableValue_forms.as_p}}
+		{{variableValue_forms.management_form}}
+		{{variableValue_forms.id}}
+
+		{% if messages %}
+    		{% for message in messages %}
+    			<p>{{ message }}</p>
+    		{% endfor %}
+		{% endif %}
+
+		<input id="plot_submit" type="submit" name="plot" value="Plot" style="width:100px" />
+		
+		{% if charttype and chartdata %}
+			{% load_chart charttype chartdata 'scatterchart_container' extra %}
+    		{% include_container 'scatterchart_container' 400 600 %}
+    	{% endif %}
+
 	</form>
 {% endblock content %}
